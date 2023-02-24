@@ -1,0 +1,5 @@
+[init]
+	defaultBranch = master
+[user]
+	name = sportshead
+	email = me@sportshead.dev

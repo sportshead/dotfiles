@@ -1,0 +1,442 @@
+#!/bin/bash
+
+#region debug
+# PS4='$LINENO: '
+# set -x
+#endregion
+
+HELPSTR="
+yarn wrapper by @sportshead (https://github.com/sportshead/)
+Usage: $0 <command> <options>
+
+Classic (yarn v1) commands are not supported, but some commands are the same so
+you can use those. Or, you can run v1 commands using \`$0 <command>\`.
+Running with an unknown command will pass <options> to yarn.
+E.g. \`$0 add -D typescript\`
+Commands:
+    a:          \`yarn add <options>\`
+    ae:         \`yarn add --exact <options>\`
+    ad:         \`yarn add --dev <options>\`
+    aed,ade:    \`yarn add --exact --dev <options>\`
+    ap:         \`yarn add --peer <options>\`
+    ape,aep:    \`yarn add --exact --peer <options\`
+    cc:         \`yarn cache clean <options>\`
+    cca,prune:  \`yarn cache clean --all <options>\`
+    cf:         \`yarn config <options>\`
+    cfg:        \`yarn config get <options>\`
+    cfs:        \`yarn config set <options>\`
+    dd:         \`yarn dedupe <options>\`
+    dx,x:       \`yarn dlx <options>\`
+    ex:         \`yarn exec <options>\`
+    pr:         \`yarn explain peer-requirements <options>\`
+    in:         \`yarn info <options>\`
+    i:          \`yarn init <options>\`
+    ip:         \`yarn init --private <options>\`
+    ins:        \`yarn install <options>\`
+    l:          \`yarn link <options>\`
+    n:          \`yarn node <options>\`
+    na:         \`yarn npm audit <options>\`
+    ni:         \`yarn npm info <options>\`
+    nli:        \`yarn npm login <options>\`
+    nlo:        \`yarn npm logout <options>\`
+    np:         \`yarn npm publish <options>\`
+    npr:        \`yarn npm publish --tolerate-republish <options>\`
+    npp:        \`yarn npm publish --access public <options>\`
+    nppr:       \`yarn npm publish --access public --tolerate-republish <options>\`
+    nta:        \`yarn npm tag add <options>\`
+    ntl,ntls:   \`yarn npm tag list <options>\`
+    ntr,ntrm:   \`yarn npm tag remove <options>\`
+    nw:         \`yarn npm whoami <options>\`
+    p:          \`yarn pack <options>\`
+    pa:         \`yarn patch <options>\`
+    pc:         \`yarn patch-commit <options>\`
+    pi,pli:     \`yarn plugin import <options>\`
+    pis:        \`yarn plugin import from sources <options>\`
+    pl,pls:     \`yarn plugin list <options>\`
+    pnp,sdk:    \`yarn dlx @@yarnpkg/sdks vscode\`
+    prm:        \`yarn plugin remove <options>\`
+    pru:        \`yarn plugin runtime <options>\`
+    r:          \`yarn run <options>\`
+    re:         \`yarn rebuild <options>\`
+    rm,un:      \`yarn remove <options>\`
+    s:          \`yarn search <options>\` (requires \`y pli interactive-tools\`)
+    sr:         \`yarn set resolution <options>\`
+    svs:        \`yarn set version from sources <options>\`
+    sv:         \`yarn set version <options>\`
+    svl:        \`yarn set version latest <options>\`
+    svb:        \`yarn set version berry <options>\`
+    svc:        \`yarn set version classic <options>\` (classic commands are not supported, see top)
+    st:         \`yarn stage <options>\` (requires \`y pli stage\`)
+    stc:        \`yarn stage --commit <options>\`
+    u:          \`yarn up <options>\`
+    ui:         \`yarn upgrade-interactive <options>\`
+    unp:        \`yarn unplug <options>\`
+    v:          \`yarn version <options>\` (requires \`y pli version\`)
+
+    All of the below require \`y pli version\` and can be suffixed with \`d\` to
+    defer the version. E.g. \`y vmad\` = \`yarn version major --deferred\`
+    vma:        \`yarn version major <options>\`
+    vmap:       \`yarn version premajor <options>\`
+    vmi:        \`yarn version minor <options>\`
+    vmip:       \`yarn version preminor <options>\`
+    vp:         \`yarn version patch <options>\`
+    vpp:        \`yarn version prepatch <options>\`
+    vpr:        \`yarn version prerelease <options>\`
+
+    va:         \`yarn version apply <options>\`
+    vaa:        \`yarn version apply --all <options>\`
+    vc:         \`yarn version check <options>\`
+    y:          \`yarn why <options>\`
+    w:          \`yarn workspace <options>\`
+    wf:         \`yarn workspaces focus <options>\`
+    wfe:        \`yarn workspaces foreach <options>\`
+    wfl,wfls:   \`yarn workspaces list <options>\`
+
+"
+
+case "$1" in
+    a)
+        shift
+        yarn add "$@"
+        ;;
+    ae)
+        shift
+        yarn add --exact "$@"
+        ;;
+    ad)
+        shift
+        yarn add -D "$@"
+        ;;
+    aed|ade)
+        shift
+        yarn add --exact --dev "$@"
+        ;;
+    ap)
+        shift
+        yarn add --peer "$@"
+        ;;
+    ape|aep)
+        shift
+        yarn add --peer --dev "$@"
+        ;;
+    cc)
+        shift
+        yarn cache clean "$@"
+        ;;
+    cca|prune)
+        shift
+        yarn cache clean --all "$@"
+        ;;
+    cf)
+        shift
+        yarn config "$@"
+        ;;
+    cfg)
+        shift
+        yarn config get "$@"
+        ;;
+    cfs)
+        shift
+        yarn config set "$@"
+        ;;
+    dd)
+        shift
+        yarn dedupe "$@"
+        ;;
+    x)
+        shift
+        yarn dlx "$@"
+        ;;
+    ex)
+        shift
+        yarn exec "$@"
+        ;;
+    pr)
+        shift
+        yarn explain peer-requirements "$@"
+        ;;
+    in)
+        shift
+        yarn info "$@"
+        ;;
+    i)
+        shift
+        yarn init "$@"
+        ;;
+    ip)
+        shift
+        yarn init --private "$@"
+        ;;
+    ins)
+        shift
+        yarn install "$@"
+        ;;
+    l)
+        shift
+        yarn link "$@"
+        ;;
+    L)
+        # easter egg
+        shift
+        echo "yarn wrapper: loser"
+        yarn link "$@"
+        ;;
+    n)
+        shift
+        yarn node "$@"
+        ;;
+    na)
+        shift
+        yarn npm audit "$@"
+        ;;
+    ni)
+        shift
+        yarn npm info "$@"
+        ;;
+    nani)
+        # easter egg
+        echo "yarn wrapper: OMAE WA MOU SHINDEIRU"
+        ;;
+    nli)
+        shift
+        yarn npm login "$@"
+        ;;
+    nlo)
+        shift
+        yarn npm logout "$@"
+        ;;
+    np)
+        shift
+        yarn npm publish "$@"
+        ;;
+    npr)
+        shift
+        yarn npm publish --tolerate-republish "$@"
+        ;;
+    npp)
+        shift
+        yarn npm publish --access public "$@"
+        ;;
+    nppr)
+        shift
+        yarn npm publish --access public --tolerate-republish "$@"
+        ;;
+    nta)
+        shift
+        yarn npm tag add "$@"
+        ;;
+    ntl|ntls)
+        shift
+        yarn npm tag list "$@"
+        ;;
+    ntr|ntrm)
+        shift
+        yarn npm tag remove "$@"
+        ;;
+    nw)
+        shift
+        yarn npm whoami "$@"
+        ;;
+    p)
+        shift
+        yarn pack "$@"
+        ;;
+    pa)
+        shift
+        yarn patch "$@"
+        ;;
+    pc)
+        shift
+        yarn patch-commit "$@"
+        ;;
+    pi|pli)
+        shift
+        yarn plugin import "$@"
+        ;;
+
+    pis)
+        shift
+        yarn plugin import from sources "$@"
+        ;;
+    pl|pls)
+        shift
+        yarn plugin list "$@"
+        ;;
+    pnp|sdk)
+        shift
+        yarn dlx @yarnpkg/sdks vscode "$@"
+        ;;
+
+    prm)
+        shift
+        yarn plugin remove "$@"
+        ;;
+    pru)
+        shift
+        yarn plugin runtime "$@"
+        ;;
+    r)
+        shift
+        yarn run "$@"
+        ;;
+    re)
+        shift
+        yarn rebuild "$@"
+        ;;
+    rm|un)
+        shift
+        yarn remove "$@"
+        ;;
+    s)
+        shift
+        yarn search "$@"
+        ;;
+    sr)
+        shift
+        yarn set resolution "$@"
+        ;;
+    svs)
+        shift
+        yarn set version from sources "$@"
+        ;;
+    sv)
+        shift
+        yarn set version "$@"
+        ;;
+    svl)
+        shift
+        yarn set version latest "$@"
+        ;;
+    svb)
+        shift
+        yarn set version berry "$@"
+        ;;
+    svc)
+        shift
+        yarn set version classic "$@"
+        ;;
+    st)
+        shift
+        yarn stage "$@"
+        ;;
+    stc)
+        shift
+        yarn stage --commit "$@"
+        ;;
+    u)
+        shift
+        yarn up "$@"
+        ;;
+    ui)
+        shift
+        yarn upgrade-interactive "$@"
+        ;;
+    unp)
+        shift
+        yarn unplug "$@"
+        ;;
+    v)
+        shift
+        yarn version "$@"
+        ;;
+    vma)
+        shift
+        yarn version major "$@"
+        ;;
+    vmad)
+        shift
+        yarn version major --deferred "$@"
+        ;;
+    vmap)
+        shift
+        yarn version premajor "$@"
+        ;;
+    vmapd)
+        shift
+        yarn version premajor --deferred "$@"
+        ;;
+    vmi)
+        shift
+        yarn version minor "$@"
+        ;;
+    vmid)
+        shift
+        yarn version minor --deferred "$@"
+        ;;
+    vmip)
+        shift
+        yarn version preminor "$@"
+        ;;
+    vmipd)
+        shift
+        yarn version preminor --deferred "$@"
+        ;;
+    vp)
+        shift
+        yarn version patch "$@"
+        ;;
+    vpd)
+        shift
+        yarn version patch --deferred "$@"
+        ;;
+    vpp)
+        shift
+        yarn version prepatch "$@"
+        ;;
+    vppd)
+        shift
+        yarn version prepatch --deferred "$@"
+        ;;
+    vpr)
+        shift
+        yarn version prerelease "$@"
+        ;;
+    vprd)
+        shift
+        yarn version prerelease --deferred "$@"
+        ;;
+    va)
+        shift
+        yarn version apply "$@"
+        ;;
+    vaa)
+        shift
+        yarn version apply --all "$@"
+        ;;
+    vc)
+        shift
+        yarn version check "$@"
+        ;;
+    y)
+        shift
+        yarn why "$@"
+        ;;
+    tho)
+        # easter egg
+        echo "yarn wrapper: bcuz"
+        ;;
+    w)
+        shift
+        yarn workspace "$@"
+        ;;
+    wf)
+        shift
+        yarn workspaces focus "$@"
+        ;;
+    wfe)
+        shift
+        yarn workspaces foreach "$@"
+        ;;
+    wfl|wfls)
+        shift
+        yarn workspaces list "$@"
+        ;;
+
+
+    h|help|-h|--help|-help|?)
+        echo "$HELPSTR"
+        ;;
+    *)
+        yarn "$@"
+        ;;
+esac
