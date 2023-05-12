@@ -1,9 +1,9 @@
 # colors
-GREEN="\033[38;5;10m"
-RED="\033[38;5;9m"
-BLUE="\033[01;34m"
+GREEN="\001\033[38;5;10m\002"
+RED="\001\033[38;5;9m\002"
+BLUE="\001\033[01;34m\002"
 
-RESET=$(tput sgr0)
+RESET="\001$(tput sgr0)\002"
 
 __usercolor() {
     if [[ $UID = 0 ]]; then
