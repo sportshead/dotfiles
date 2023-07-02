@@ -1,8 +1,8 @@
 alias ls="ls --color=auto -p"
 
 alias ldir="exa -la -d */"
-alias lah="exa -lag"
-alias lahg="exa -la | grep"
+alias ll="exa -lag"
+alias llg="exa -la | grep"
 alias lag="exa -la --git"
 
 alias lg="lazygit"
