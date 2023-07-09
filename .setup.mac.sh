@@ -66,6 +66,7 @@ brew install wget --with-iri
 
 # Install GnuPG to enable PGP-signing commits.
 brew install gnupg
+curl https://github.com/web-flow.gpg | gpg --import -
 
 # Install more recent versions of some macOS tools.
 brew install vim --with-override-system-vi

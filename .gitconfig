@@ -3,5 +3,10 @@
 [user]
 	name = sportshead
 	email = me@sportshead.dev
+	signingkey = root@sportshead.dev
 [core]
 	excludesfile = ~/.global.gitignore
+[commit]
+	gpgsign = true
+[log]
+	showSignature = true
