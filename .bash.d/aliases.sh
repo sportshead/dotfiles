@@ -17,3 +17,14 @@ alias grep='grep --color=auto'
 alias findf="find . -type f -iname "
 alias findd="find . -type d -iname "
 alias psg="ps aux | grep -i "
+
+if [[ "$OSTYPE" =~ ^darwin ]]; then
+    alias bri="brew install"
+    alias brc="brew install --cask"
+
+    alias zip="zip -x *.DS_Store -x *__MACOSX* -x *.AppleDouble*"
+    alias flushdns="dscacheutil -flushcache && killall -HUP mDNSResponder"
+
+    alias firefox="/Applications/Firefox\ Developer\ Edition.app/Contents/MacOS/firefox"
+    alias chromium="/Applications/Chromium.app/Contents/MacOS/Chromium"
+fi

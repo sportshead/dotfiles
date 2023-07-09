@@ -12,5 +12,25 @@ export GOPATH="$HOME/go"
 
 export PATH="$HOME/.bin:$PATH"
 
+export PATH="$HOME/.yarn/bin:$PATH"
+
+export PATH="$HOME/.cargo/bin:$PATH"
+
 export PRETTIERD_DEFAULT_CONFIG="$HOME/.config/.prettierrc"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+if [[ "$OSTYPE" =~ ^darwin ]]; then
+    export PATH="$HOME/Library/Application Support/JetBrains/Toolbox/scripts:$PATH"
+
+    export BASH_SILENCE_DEPRECATION_WARNING=1
+
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+
+    export PATH="/opt/homebrew/opt/curl/bin:$PATH"
+    [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
+
+    ulimit -S -n 8192
+fi
 

@@ -3,3 +3,5 @@
 [user]
 	name = sportshead
 	email = me@sportshead.dev
+[core]
+	excludesfile = ~/.global.gitignore
