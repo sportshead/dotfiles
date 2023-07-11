@@ -22,6 +22,7 @@ hs.hotkey.bind(mash, "v", function() toggleApplication("Visual Studio Code") end
 hs.hotkey.bind(mash, "e", function() toggleApplication("Fleet") end)
 hs.hotkey.bind(mash, "o", function() toggleApplication("Obsidian") end)
 hs.hotkey.bind(mash, "s", function() toggleApplication("Spotify") end)
+hs.hotkey.bind(mash, "a", function() toggleApplication("Authy Desktop") end)
 
 hs.grid.setGrid'3x3'
 hs.grid.setMargins("0,0")

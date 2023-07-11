@@ -104,6 +104,9 @@ brew install --cask caffeine
 print "Installing Hammerspoon"
 brew install --cask hammerspoon
 
+print "Installing Secretive"
+brew install --cask secretive
+
 print "Configuring some useful defaults"
 osascript -e 'tell application "System Preferences" to quit'
 # Automatically quit printer app once the print jobs complete

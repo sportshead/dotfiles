@@ -32,5 +32,7 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
     [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
 
     ulimit -S -n 8192
+
+    export SSH_AUTH_SOCK="$HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh"
 fi
 
