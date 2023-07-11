@@ -2,8 +2,8 @@
 
 mash = {"⌘", "⌥", "⌃"}
 
-hs.hotkey.bind(mash, "V", function() hs.eventtap.keyStrokes(hs.pasteboard.getContents()) end)
-hs.hotkey.bind(mash, "C", function() hs.pasteboard.clearContents() end)
+hs.hotkey.bind(mash, "p", function() hs.eventtap.keyStrokes(hs.pasteboard.getContents()) end)
+hs.hotkey.bind(mash, "c", function() hs.pasteboard.clearContents() end)
 
 local function toggleApplication(name)
     local app = hs.application.find(name)
