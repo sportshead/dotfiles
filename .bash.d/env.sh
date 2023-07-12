@@ -34,5 +34,8 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
     ulimit -S -n 8192
 
     export SSH_AUTH_SOCK="$HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh"
+
+    export HOMEBREW_FORCE_BREWED_CURL=1
+    export CURL_SSL_BACKEND=secure-transport
 fi
 

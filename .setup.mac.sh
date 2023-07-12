@@ -107,6 +107,9 @@ brew install --cask hammerspoon
 print "Installing Secretive"
 brew install --cask secretive
 
+print "Installing gpgmail"
+brew install --cask free-gpgmail
+
 print "Configuring some useful defaults"
 osascript -e 'tell application "System Preferences" to quit'
 # Automatically quit printer app once the print jobs complete
