@@ -110,6 +110,9 @@ brew install --cask secretive
 print "Installing gpgmail"
 brew install --cask free-gpgmail
 
+print "Installing Insomnia"
+brew install --cask insomnia
+
 print "Configuring some useful defaults"
 osascript -e 'tell application "System Preferences" to quit'
 # Automatically quit printer app once the print jobs complete
