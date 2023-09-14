@@ -27,4 +27,6 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
 
     alias firefox="/Applications/Firefox\ Developer\ Edition.app/Contents/MacOS/firefox"
     alias chromium="/Applications/Chromium.app/Contents/MacOS/Chromium"
+
+    alias git="hub"
 fi

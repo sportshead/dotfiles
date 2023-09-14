@@ -27,6 +27,19 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
     export BASH_SILENCE_DEPRECATION_WARNING=1
 
     eval "$(/opt/homebrew/bin/brew shellenv)"
+    if type brew &>/dev/null
+    then
+      HOMEBREW_PREFIX="$(brew --prefix)"
+      if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]
+      then
+        source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
+      else
+        for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*
+        do
+          [[ -r "${COMPLETION}" ]] && source "${COMPLETION}"
+        done
+      fi
+    fi
 
     export PATH="/opt/homebrew/opt/curl/bin:$PATH"
     [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
@@ -37,5 +50,10 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
 
     export HOMEBREW_FORCE_BREWED_CURL=1
     export CURL_SSL_BACKEND=secure-transport
+
+    export PATH="$HOME/.jenv/bin:$PATH"
+    eval "$(jenv init -)"
+
+    export XDG_CONFIG_HOME="$HOME/.config"
 fi
 

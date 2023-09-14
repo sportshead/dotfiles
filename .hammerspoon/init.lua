@@ -16,13 +16,14 @@ local function toggleApplication(name)
     end
   end
 hs.hotkey.bind(mash, "t", function() toggleApplication("iTerm2") end)
-hs.hotkey.bind(mash, "m", function() toggleApplication("Thunderbird") end)
+hs.hotkey.bind(mash, "m", function() toggleApplication("Mail") end)
 hs.hotkey.bind(mash, "f", function() toggleApplication("Firefox Developer Edition") end)
 hs.hotkey.bind(mash, "v", function() toggleApplication("Visual Studio Code") end)
 hs.hotkey.bind(mash, "e", function() toggleApplication("Fleet") end)
 hs.hotkey.bind(mash, "o", function() toggleApplication("Obsidian") end)
 hs.hotkey.bind(mash, "s", function() toggleApplication("Spotify") end)
 hs.hotkey.bind(mash, "a", function() toggleApplication("Authy Desktop") end)
+hs.hotkey.bind(mash, "d", function() toggleApplication("Discord") end)
 
 hs.grid.setGrid'3x3'
 hs.grid.setMargins("0,0")

@@ -89,11 +89,12 @@ mk() {
 
 if [[ "$OSTYPE" =~ ^darwin ]]; then
     # Change working directory to the top-most Finder window location
-    
     function cdf() {
     	cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')";
     }
+
+    # https://scriptingosx.com/2022/11/on-viewing-man-pages-ventura-update/
     manpdf() {
-      man -t "$1" | open -f -a /Applications/Preview.app/
+        mandoc -T pdf "$(/usr/bin/man -w $@)" | open -fa Preview
     }
 fi
