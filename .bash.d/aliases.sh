@@ -29,4 +29,6 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
     alias chromium="/Applications/Chromium.app/Contents/MacOS/Chromium"
 
     alias git="hub"
+
+    alias kill-wine="killall -9 wineserver && killall -9 wine64-preloader"
 fi

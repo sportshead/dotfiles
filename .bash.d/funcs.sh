@@ -97,4 +97,7 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
     manpdf() {
         mandoc -T pdf "$(/usr/bin/man -w $@)" | open -fa Preview
     }
+
+    gptk(){ WINEESYNC=1 WINEPREFIX=~/wine-virt $(brew --prefix game-porting-toolkit)/bin/wine64 "$@"; }
+    alias gptk-steam="gptk 'C:\Program Files (x86)\Steam\steam.exe'"
 fi

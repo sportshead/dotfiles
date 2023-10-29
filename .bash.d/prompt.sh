@@ -5,6 +5,16 @@ BLUE="\001\033[01;34m\002"
 
 RESET="\001$(tput sgr0)\002"
 
+PS1=""
+if [[ "$OSTYPE" =~ ^darwin ]]; then
+  __archcheck() {
+      if [ "$(arch)" != "arm64" ]; then
+        echo -n "($(arch)) "
+      fi
+  }
+  PS1+="\$(__archcheck)"
+fi
+
 __usercolor() {
     if [[ $UID = 0 ]]; then
         printf "$RED"
@@ -12,7 +22,7 @@ __usercolor() {
         printf "$GREEN"
     fi
 }
-PS1="\$(__usercolor)"
+PS1+="\$(__usercolor)"
 PS1+="\u"
 PS1+="$RESET$GREEN"
 PS1+="@\h"
