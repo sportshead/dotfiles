@@ -6,7 +6,15 @@
 	signingkey = root@sportshead.dev
 [core]
 	excludesfile = ~/.global.gitignore
+    attributesfile = ~/.global.gitattributes
 [commit]
 	gpgsign = true
 [log]
 	showSignature = true
+[credential]
+	helper = /usr/local/share/gcm-core/git-credential-manager
+[credential "https://dev.azure.com"]
+	useHttpPath = true
+[diff "lockb"]
+	textconv = bun
+	binary = true
