@@ -81,8 +81,6 @@ cdnvm() {
     fi
 }
 
-alias cd='cdnvm'
-
 mk() {
   mkdir -p "$@" && cd "$@"
 }
@@ -100,4 +98,5 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
 
     gptk(){ WINEESYNC=1 WINEPREFIX=~/wine-virt $(brew --prefix game-porting-toolkit)/bin/wine64 "$@"; }
     alias gptk-steam="gptk 'C:\Program Files (x86)\Steam\steam.exe'"
+    alias cd='cdnvm'
 fi
