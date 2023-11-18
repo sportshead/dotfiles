@@ -19,8 +19,8 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 export PRETTIERD_DEFAULT_CONFIG="$HOME/.config/.prettierrc"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+type fnm >/dev/null 2>&1 && eval "$(fnm env --shell bash --use-on-cd --corepack-enabled)"
+type fnm >/dev/null 2>&1 && eval "$(fnm completions --shell bash)"
 
 export NODE_PATH="$NODE_PATH:$(npm root -g)"
 

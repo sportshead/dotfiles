@@ -24,15 +24,11 @@ brew tap homebrew/autoupdate
 print "Installing curl"
 brew install curl
 
-print "Installing nvm"
-PROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash'
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-print "Setting up nvm to use LTS"
-nvm install --lts --default
-nvm use --lts
-print "Installing yarn"
-corepack enable
+print "Installing fnm"
+~/.setup.fnm.sh
+eval "$(fnm env --shell bash --use-on-cd --corepack-enabled)"
+print "Installing prettier globally"
+npm install -g prettier prettier-plugin-go-template
 
 print "Installing go"
 brew install go
@@ -52,7 +48,7 @@ brew install neovim
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 print "Installing github CLI"
-brew install hub
+brew install gh
 
 print "Installing autojump"
 brew install autojump
@@ -112,6 +108,9 @@ brew install --cask free-gpgmail
 
 print "Installing Insomnia"
 brew install --cask insomnia
+
+print "Installing uPic"
+brew install --cask bigwig-club/brew/upic
 
 print "Configuring some useful defaults"
 osascript -e 'tell application "System Preferences" to quit'

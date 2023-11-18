@@ -21,7 +21,8 @@ hs.hotkey.bind(mash, "f", function() toggleApplication("Firefox Developer Editio
 hs.hotkey.bind(mash, "v", function() toggleApplication("Visual Studio Code") end)
 hs.hotkey.bind(mash, "e", function() toggleApplication("IntelliJ IDEA") end)
 hs.hotkey.bind(mash, "o", function() toggleApplication("Microsoft OneNote") end)
-hs.hotkey.bind(mash, "s", function() toggleApplication("Spotify") end)
+--- hs.hotkey.bind(mash, "s", function() toggleApplication("Spotify") end)
+--- cmd+opt+ctrl s is upic shortcut now
 hs.hotkey.bind(mash, "a", function() toggleApplication("Authy Desktop") end)
 hs.hotkey.bind(mash, "d", function() toggleApplication("Discord") end)
 
