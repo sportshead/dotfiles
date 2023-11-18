@@ -1,9 +1,9 @@
 #!/bin/bash
-if [[ "$OSTYPE" =~ ^darwin ]]; then
-    brew install fnm
-else
-    curl -fsSL https://fnm.vercel.app/install | bash -s -- --skip-shell
+
+if [[ "$OSTYPE" =~ ^darwin ]]; then : ; else
+  mkdir -p "$HOME/.fnm"
 fi
+curl -fsSL https://fnm.vercel.app/install | bash -s -- --skip-shell
 
 eval "$(fnm env --shell bash --use-on-cd --corepack-enabled)"
 

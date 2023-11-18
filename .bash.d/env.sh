@@ -19,6 +19,9 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 export PRETTIERD_DEFAULT_CONFIG="$HOME/.config/.prettierrc"
 
+if [[ "$OSTYPE" =~ ^darwin ]]; then : ; else
+  export PATH="$HOME/.fnm:$PATH"
+fi
 type fnm >/dev/null 2>&1 && eval "$(fnm env --shell bash --use-on-cd --corepack-enabled)"
 type fnm >/dev/null 2>&1 && eval "$(fnm completions --shell bash)"
 
