@@ -29,6 +29,8 @@ print "Installing fnm"
 eval "$(fnm env --shell bash --use-on-cd --corepack-enabled)"
 print "Installing prettier globally"
 npm install -g prettier prettier-plugin-go-template
+print "Installing ni"
+npm install -g @antfu/ni
 
 print "Installing go"
 brew install go
@@ -53,8 +55,8 @@ brew install gh
 print "Installing autojump"
 brew install autojump
 
-print "Installing docker"
-brew install --cask docker
+print "Installing orbstack"
+brew install --cask orbstack
 
 print "Installing some CLI tools"
 # Install `wget` with IRI support.
@@ -203,5 +205,9 @@ defaults write com.apple.TextEdit RichText -int 0
 defaults write com.apple.TextEdit PlainTextEncoding -int 4
 defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
 
-print "All done! Here are some useful resources:"
-echo "- Touch ID for sudo https://apple.stackexchange.com/questions/259093/can-touch-id-on-mac-authenticate-sudo-in-terminal"
+print "Enabling Touch ID for sudo"
+sudo cp /etc/pam.d/sudo_local.template /etc/pam.d/sudo_local
+echo "- sudo -e /etc/pam.d/sudo_local"
+echo "  Uncomment the line to enable Touch ID"
+
+print "All done!"

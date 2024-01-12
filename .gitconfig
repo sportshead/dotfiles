@@ -7,6 +7,7 @@
 [core]
 	excludesfile = ~/.global.gitignore
     attributesfile = ~/.global.gitattributes
+    pager = delta
 [commit]
 	gpgsign = true
 [log]
@@ -18,3 +19,9 @@
 [diff "lockb"]
 	textconv = bun
 	binary = true
+[credential "https://github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential

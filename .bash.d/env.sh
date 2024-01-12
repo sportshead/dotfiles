@@ -72,6 +72,14 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
     export PKG_CONFIG_PATH="/opt/homebrew/opt/ruby/lib/pkgconfig"
 
     export CHROME_EXECUTABLE="/opt/homebrew/bin/chromium"
+
+    source "$(brew --prefix)/share/google-cloud-sdk/path.bash.inc"
+    source "$(brew --prefix)/share/google-cloud-sdk/completion.bash.inc"
+
+    export PROXYCHAINS_CONF_FILE="$HOME/.config/proxychains/proxychains.conf"
+
+    export PATH="$(brew --prefix llvm@16)/bin:$PATH"
+    export PATH="$HOME/.linkerd2/bin:$PATH"
 fi
 
 

@@ -1,0 +1,82 @@
+#!/bin/sh
+
+# https://github.com/juliangruber/vipe/blob/b2e4e4a4b3ede41cec984cbac409dc314281500d/vipe.sh
+# vipe(1) - Pipe in and out of $EDITOR
+#
+# (c) 2014 Julian Gruber <julian@juliangruber.com>.
+# MIT licensed.
+#
+# Example:
+#
+#   $ echo foo | vipe | gist
+#   $ vipe | gist
+#
+# This is a lightweight shell only version. For the original impementation in
+# perl, check https://github.com/madx/moreutils/blob/master/vipe
+#
+
+# Copyright (c) 2024 sportshead <me@sportshead.dev>
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+# 
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+# 
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+
+# CHANGELOG
+# v0.2.0: updated to use mktemp
+
+# version
+
+VERSION="0.2.0"
+
+# usage
+
+if [ "${1}" ]; then
+  case "${1}" in
+  "-h")
+    echo "usage: vipe [-hV]"
+    exit 0 ;;
+  "-V")
+    echo "$VERSION"
+    exit 0 ;;
+  *)
+    echo "unknown option: \"${1}\""
+    echo "usage: vipe [-hV]"
+    exit 1
+  esac
+fi
+
+# temp file
+
+t="$(mktemp)"
+
+# read from stdin
+
+if [ ! -t 0 ]; then
+  cat > $t
+fi
+
+# spawn editor with stdio connected
+
+${EDITOR} $t < /dev/tty > /dev/tty || exit $?
+
+# write to stdout
+
+cat $t
+
+# cleanup
+
+rm $t
+

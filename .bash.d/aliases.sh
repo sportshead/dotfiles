@@ -31,4 +31,6 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
     alias git="hub"
 
     alias kill-wine="killall -9 wineserver && killall -9 wine64-preloader"
+
+    alias signal="nohup /Applications/Signal.app/Contents/MacOS/Signal </dev/null >/dev/null 2>&1 & disown"
 fi

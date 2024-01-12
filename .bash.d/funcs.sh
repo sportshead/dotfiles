@@ -2,16 +2,16 @@ _complete_ssh_hosts ()
 {
         COMPREPLY=()
         cur="${COMP_WORDS[COMP_CWORD]}"
-        comp_ssh_hosts=`cat ~/.ssh/known_hosts | \
+        comp_ssh_hosts=$(cat ~/.ssh/known_hosts | \
                         cut -f 1 -d ' ' | \
                         sed -e s/,.*//g | \
                         grep -v ^# | \
                         uniq | \
                         grep -v "\[" ;
-#                cat ~/.ssh/config | \
-#                        grep "^Host " | \
-#                        awk '{print $2}'
-                `
+               cat ~/.ssh/config | \
+                       grep "^Host " | \
+                       awk '{print $2}'
+                )
         COMPREPLY=( $(compgen -W "${comp_ssh_hosts}" -- $cur))
         return 0
 }
@@ -50,7 +50,7 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
 
     # https://scriptingosx.com/2022/11/on-viewing-man-pages-ventura-update/
     manpdf() {
-        mandoc -T pdf "$(/usr/bin/man -w $@)" | open -fa Preview
+        mandoc -T pdf "$(/usr/bin/man -w "$@")" | open -fa Preview
     }
 
     gptk(){ WINEESYNC=1 WINEPREFIX=~/wine-virt $(brew --prefix game-porting-toolkit)/bin/wine64 "$@"; }
