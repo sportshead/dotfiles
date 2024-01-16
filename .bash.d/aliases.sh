@@ -33,4 +33,6 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
     alias kill-wine="killall -9 wineserver && killall -9 wine64-preloader"
 
     alias signal="nohup /Applications/Signal.app/Contents/MacOS/Signal </dev/null >/dev/null 2>&1 & disown"
+
+    alias sshp="ssh -o ProxyCommand='nc -x 127.0.0.1:1080 %h %p'"
 fi
