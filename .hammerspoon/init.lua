@@ -61,4 +61,4 @@ hs.hotkey.bind(mash, ",", function() hs.grid.snap(getWin()) end)
 hs.hotkey.bind(mash, "space", function() hs.grid.maximizeWindow() end)
 
 --- .: minimize window
-hs.hotkey.bind(mash, ".", function() hs.grid.set(getWin(), '0,0 1x1'); end)
+hs.hotkey.bind(mash, ".", function() hs.grid.set(getWin(), '0,0 1x1'); end)hs.loadSpoon('ControlEscape'):start() -- Load Hammerspoon bits from https://github.com/jasonrudolph/ControlEscape.spoon
