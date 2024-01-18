@@ -205,6 +205,9 @@ defaults write com.apple.TextEdit RichText -int 0
 defaults write com.apple.TextEdit PlainTextEncoding -int 4
 defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
 
+print "Remapping Escape to Caps Lock"
+hidutil property --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x700000029,"HIDKeyboardModifierMappingDst":0x700000039},{"HIDKeyboardModifierMappingSrc":0x700000039,"HIDKeyboardModifierMappingDst":0x700000029}]}'
+
 print "Enabling Touch ID for sudo"
 sudo cp /etc/pam.d/sudo_local.template /etc/pam.d/sudo_local
 echo "- sudo -e /etc/pam.d/sudo_local"
