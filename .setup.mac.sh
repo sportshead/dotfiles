@@ -69,6 +69,7 @@ curl https://github.com/web-flow.gpg | gpg --import -
 # Install more recent versions of some macOS tools.
 brew install vim --with-override-system-vi
 brew install grep
+brew install ripgrep
 brew install openssh
 brew install screen
 brew install php
