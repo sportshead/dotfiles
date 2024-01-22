@@ -6,3 +6,7 @@ git:
       pager: delta --dark --paging=never
 
 notARepository: skip
+
+gui:
+  nerdFontsVersion: "3"
+
