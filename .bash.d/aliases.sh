@@ -34,5 +34,5 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
 
     alias signal="nohup /Applications/Signal.app/Contents/MacOS/Signal </dev/null >/dev/null 2>&1 & disown"
 
-    alias sshp="ssh -o ProxyCommand='nc -x 127.0.0.1:1080 %h %p'"
+    alias proxy="export http_proxy=http://127.0.0.1:1087;export https_proxy=http://127.0.0.1:1087;export ALL_PROXY=socks5://127.0.0.1:1080"
 fi
