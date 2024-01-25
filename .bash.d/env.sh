@@ -107,3 +107,6 @@ type fnm >/dev/null 2>&1 && eval "$(fnm env --shell bash --use-on-cd --corepack-
 type fnm >/dev/null 2>&1 && eval "$(fnm completions --shell bash)"
 
 export NODE_PATH="$NODE_PATH:$(npm root -g)"
+
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash
+
