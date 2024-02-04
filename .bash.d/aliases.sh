@@ -18,6 +18,8 @@ alias findf="find . -type f -iname "
 alias findd="find . -type d -iname "
 alias psg="ps aux | grep -i "
 
+alias n="nvim ."
+
 if [[ "$OSTYPE" =~ ^darwin ]]; then
     alias bri="brew install"
     alias brc="brew install --cask"
