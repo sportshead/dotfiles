@@ -1,9 +1,6 @@
 [submodule ".hammerspoon/Spoons/ControlEscape.spoon"]
 	path = .hammerspoon/Spoons/ControlEscape.spoon
 	url = https://github.com/jasonrudolph/ControlEscape.spoon.git
-[submodule ".local/share/nvim/site/pack/packer/start/packer.nvim"]
-	path = .local/share/nvim/site/pack/packer/start/packer.nvim
-	url = https://github.com/wbthomason/packer.nvim.git
 [submodule ".config/nvim"]
 	path = .config/nvim
 	url = https://github.com/sportshead/init.lua.git
