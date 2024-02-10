@@ -98,7 +98,7 @@ brew install --cask chromium
 xattr -cr /Applications/Chromium.app
 
 print "Installing Caffeine"
-brew install --cask caffeine
+brew install --cask domzilla-caffeine
 
 print "Installing Hammerspoon"
 brew install --cask hammerspoon
