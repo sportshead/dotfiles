@@ -60,7 +60,9 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
     export CURL_SSL_BACKEND=secure-transport
 
     export PATH="$HOME/.jenv/bin:$PATH"
-    eval "$(jenv init -)"
+    # https://github.com/jenv/jenv/issues/148#issuecomment-230259636
+    eval "$(jenv init - --no-rehash)"
+    (jenv rehash &) 2> /dev/null
 
     export XDG_CONFIG_HOME="$HOME/.config"
 
@@ -83,20 +85,9 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
 
     export PATH="$(brew --prefix)/anaconda3/bin:$PATH"
 
-    # >>> conda initialize >>>
-    # !! Contents within this block are managed by 'conda init' !!
-    __conda_setup="$('/opt/homebrew/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-    if [ $? -eq 0 ]; then
-        eval "$__conda_setup"
-    else
-        if [ -f "/opt/homebrew/anaconda3/etc/profile.d/conda.sh" ]; then
-            . "/opt/homebrew/anaconda3/etc/profile.d/conda.sh"
-        else
-            export PATH="/opt/homebrew/anaconda3/bin:$PATH"
-        fi
+    if [ -f "/opt/homebrew/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/opt/homebrew/anaconda3/etc/profile.d/conda.sh"
     fi
-    unset __conda_setup
-    # <<< conda initialize <<<
 fi
 
 
@@ -105,8 +96,6 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then : ; else
 fi
 type fnm >/dev/null 2>&1 && eval "$(fnm env --shell bash --use-on-cd --corepack-enabled)"
 type fnm >/dev/null 2>&1 && eval "$(fnm completions --shell bash)"
-
-export NODE_PATH="$NODE_PATH:$(npm root -g)"
 
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.bash
 
