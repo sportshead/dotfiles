@@ -1,6 +1,6 @@
 #!/bin/bash
 # bootstrap
-# sudo apt-get update && sudo apt-get install -y git && rm .bash* .profile && git init && git remote add origin https://github.com/sportshead/dotfiles.git && git fetch && git checkout master && bash .setup.debian.sh
+# sudo apt-get update && sudo apt-get install -y git && rm .bash* .profile && git init && git remote add origin https://github.com/sportshead/dotfiles.git && git fetch && git checkout master && source .bash_profile && source .setup.debian.sh
 
 sudo apt-get update
 sudo apt-get install -y libc6 libc6-i386 curl wget git build-essential cmake gdb \
@@ -9,7 +9,7 @@ sudo apt-get install -y libc6 libc6-i386 curl wget git build-essential cmake gdb
 
 sudo ln -s /usr/bin/batcat /usr/bin/bat
 
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path -y
 source ./.setup.fnm.sh
 cargo install git-delta
 
