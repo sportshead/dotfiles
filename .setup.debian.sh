@@ -5,7 +5,9 @@
 sudo apt-get update
 sudo apt-get install -y libc6 libc6-i386 curl wget git build-essential cmake gdb \
     bat file fuse cmake clang zip 7zip zstd fzf ripgrep fd-find coreutils binutils \
-    cargo gpg ca-certificates    
+    gpg ca-certificates    
+
+sudo ln -s /usr/bin/batcat /usr/bin/bat
 
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path
 source ./.setup.fnm.sh
