@@ -3,7 +3,7 @@
 if [[ "$OSTYPE" =~ ^darwin ]]; then : ; else
   mkdir -p "$HOME/.fnm"
 fi
-curl -fsSL https://fnm.vercel.app/install | bash -s -- --skip-shell
+curl -fsSL https://fnm.vercel.app/install | bash -s -- --install-dir "./.fnm" --skip-shell
 
 eval "$(fnm env --shell bash --use-on-cd --corepack-enabled)"
 
