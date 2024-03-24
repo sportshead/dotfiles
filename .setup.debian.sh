@@ -1,4 +1,7 @@
 #!/bin/bash
+# bootstrap
+# sudo apt-get update && sudo apt-get install -y git && rm .bash* .profile && git init && git remote add origin https://github.com/sportshead/dotfiles.git && git fetch && git checkout master && source .setup.debian.sh
+
 sudo apt-get update
 sudo apt-get install -y libc6 libc6-i386 curl wget git build-essential cmake gdb \
     bat file fuse cmake clang zip 7zip zstd fzf ripgrep fd-find coreutils binutils \
