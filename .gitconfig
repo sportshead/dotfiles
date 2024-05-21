@@ -1,29 +1,36 @@
 [init]
-	defaultBranch = master
+    defaultBranch = master
 [user]
-	name = sportshead
-	email = me@sportshead.dev
-	signingkey = root@sportshead.dev
+    name = sportshead
+    email = me@sportshead.dev
+    signingkey = root@sportshead.dev
 [core]
-	excludesfile = ~/.global.gitignore
+    excludesfile = ~/.global.gitignore
     attributesfile = ~/.global.gitattributes
     pager = delta
 [commit]
-	gpgsign = true
+    gpgSign = true
+[tag]
+    gpgSign = true
 [log]
-	showSignature = true
+    showSignature = true
 [credential]
-	helper = /usr/local/share/gcm-core/git-credential-manager
+    helper = /usr/local/share/gcm-core/git-credential-manager
 [credential "https://dev.azure.com"]
-	useHttpPath = true
+    useHttpPath = true
 [diff "lockb"]
-	textconv = bun
-	binary = true
+    textconv = bun
+    binary = true
 [credential "https://github.com"]
-	helper = 
-	helper = !/opt/homebrew/bin/gh auth git-credential
+    helper = 
+    helper = !/opt/homebrew/bin/gh auth git-credential
     helper = !/usr/bin/gh auth git-credential
 [credential "https://gist.github.com"]
-	helper = 
-	helper = !/opt/homebrew/bin/gh auth git-credential
+    helper = 
+    helper = !/opt/homebrew/bin/gh auth git-credential
     helper = !/usr/bin/gh auth git-credential
+[url "ssh://sportz@gerrit.wikimedia.org:29418/"]
+    pushInsteadOf = https://gerrit.wikimedia.org/r/
+[gitreview]
+    remote = origin
+    username = Sportzpikachu
