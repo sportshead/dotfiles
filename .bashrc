@@ -5,8 +5,8 @@ for file in $BASHD/{funcs,opts,env,env.mac,env.after,secret-env,aliases,secret-a
 	[ -r "$file.sh" ] && [ -f "$file.sh" ] && source "$file.sh"
 done
 
-if [[ "$LC_TERMINAL" =~ "iterm2" ]]; then
-	[ -r "$file.sh" ] && [ -f "$file.sh" ] && source "$BASHD/iterm2.sh"
+if [[ "$LC_TERMINAL" =~ "iTerm2" ]]; then
+	[ -r "$BASHD/iterm2.sh" ] && [ -f "$BASHD/iterm2.sh" ] && source "$BASHD/iterm2.sh"
 fi
 
 unset file
