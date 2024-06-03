@@ -6,7 +6,6 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
 	if [ "$(arch)" = "arm64" ]; then
 		eval "$(/opt/homebrew/bin/brew shellenv)"
 		export PATH="/opt/homebrew/opt/curl/bin:$PATH"
-		[ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
 		export HOMEBREW_FORCE_BREWED_CURL=1
 	else
 		eval "$(/usr/local/bin/brew shellenv)"
@@ -60,4 +59,10 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
 	fi
 
 	source ~/.orbstack/shell/init.bash 2>/dev/null || :
+
+	export MODULAR_HOME="$HOME/.modular"
+	export PATH="$HOME/.modular/pkg/packages.modular.com_mojo/bin:$PATH"
+
+	export CPPFLAGS="-I/opt/homebrew/opt/libomp/include"
+	export LDFLAGS="-L/opt/homebrew/opt/libomp/lib"
 fi

@@ -1,10 +1,10 @@
 #!/bin/bash
 print() {
-    echo
-    echo
-    echo
-    echo "---------------------"
-    echo $1
+	echo
+	echo
+	echo
+	echo "---------------------"
+	echo $1
 }
 
 echo "Please install Firefox Devloper Edition manually while this script runs in the background"
@@ -52,8 +52,8 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 print "Installing github CLI"
 brew install gh
 
-print "Installing autojump"
-brew install autojump
+print "Installing zoxide"
+brew install zoxide
 
 print "Installing orbstack"
 brew install --cask orbstack
