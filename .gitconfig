@@ -18,15 +18,12 @@
     textconv = bun
     binary = true
 [credential "https://github.com"]
-    helper = 
+    helper =
     helper = !/opt/homebrew/bin/gh auth git-credential
     helper = !/usr/bin/gh auth git-credential
 [credential "https://gist.github.com"]
-    helper = 
+    helper =
     helper = !/opt/homebrew/bin/gh auth git-credential
     helper = !/usr/bin/gh auth git-credential
-[url "ssh://sportz@gerrit.wikimedia.org:29418/"]
-    pushInsteadOf = https://gerrit.wikimedia.org/r/
-[gitreview]
-    remote = origin
-    username = Sportzpikachu
+[includeIf "hasconfig:remote.*.url:https://gerrit.wikimedia.org/r/**"]
+    path = ~/.gitconfig.wiki

@@ -1,0 +1,8 @@
+[user]
+    email = wiki@sportshead.dev
+    name = Sportzpikachu
+[url "ssh://sportz@gerrit.wikimedia.org:29418/"]
+    pushInsteadOf = https://gerrit.wikimedia.org/r/
+[gitreview]
+    remote = origin
+    username = Sportzpikachu
