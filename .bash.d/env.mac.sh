@@ -65,4 +65,7 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
 
 	export CPPFLAGS="-I/opt/homebrew/opt/libomp/include"
 	export LDFLAGS="-L/opt/homebrew/opt/libomp/lib"
+
+	export CPPFLAGS="-I/opt/homebrew/Cellar/qt/6.7.0_1/include"
+	export LDFLAGS="-L/opt/homebrew/Cellar/qt/6.7.0_1/lib"
 fi
