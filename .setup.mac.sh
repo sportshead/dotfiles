@@ -1,10 +1,10 @@
 #!/bin/bash
 print() {
-	echo
-	echo
-	echo
-	echo "---------------------"
-	echo $1
+    echo
+    echo
+    echo
+    echo "---------------------"
+    echo $1
 }
 
 echo "Please install Firefox Devloper Edition manually while this script runs in the background"
@@ -42,8 +42,8 @@ brew install jq
 
 print "Installing lazygit"
 brew install jesseduffield/lazygit/lazygit
-print "Installing exa"
-brew install exa
+print "Installing eza"
+brew install eza
 
 print "Installing neovim"
 brew install neovim
@@ -187,9 +187,9 @@ chflags nohidden ~/Library && xattr -d com.apple.FinderInfo ~/Library
 # Expand the following File Info panes:
 # "General", "Open with", and "Sharing & Permissions"
 defaults write com.apple.finder FXInfoPanesExpanded -dict \
-	General -bool true \
-	OpenWith -bool true \
-	Privileges -bool true
+    General -bool true \
+    OpenWith -bool true \
+    Privileges -bool true
 # Wipe all (default) app icons from the Dock
 # This is only really useful when setting up a new Mac, or if you don’t use
 # the Dock to launch apps.
