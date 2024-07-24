@@ -20,6 +20,8 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
 				[[ -r "${COMPLETION}" ]] && source "${COMPLETION}"
 			done
 		fi
+		export LDFLAGS="-L$HOMEBREW_PREFIX/lib"
+		export CPPFLAGS="-I$HOMEBREW_PREFIX/include"
 	fi
 
 	export HOMEBREW_CASK_OPTS="--no-quarantine"
@@ -38,8 +40,6 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
 	export PATH="$PATH:$HOME/.pub-cache/bin"
 
 	export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
-	export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"
-	export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"
 	export PKG_CONFIG_PATH="/opt/homebrew/opt/ruby/lib/pkgconfig"
 
 	export CHROME_EXECUTABLE="/opt/homebrew/bin/chromium"
@@ -62,10 +62,4 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
 
 	export MODULAR_HOME="$HOME/.modular"
 	export PATH="$HOME/.modular/pkg/packages.modular.com_mojo/bin:$PATH"
-
-	export CPPFLAGS="-I/opt/homebrew/opt/libomp/include"
-	export LDFLAGS="-L/opt/homebrew/opt/libomp/lib"
-
-	export CPPFLAGS="-I/opt/homebrew/Cellar/qt/6.7.0_1/include"
-	export LDFLAGS="-L/opt/homebrew/Cellar/qt/6.7.0_1/lib"
 fi
