@@ -2,10 +2,10 @@
 export EDITOR="nvim"
 export VISUAL="$EDITOR"
 
-export LC_ALL=en_US.UTF-8
-export TERM=xterm-256color
-export PROMPT_COMMAND='history -a'
-export GPG_TTY=$(tty)
+export LC_ALL="en_GB.UTF-8"
+export TERM="xterm-256color"
+export PROMPT_COMMAND="history -a"
+export GPG_TTY="$(tty)"
 
 export PATH="$PATH:/usr/local/go/bin"
 export PATH="$HOME/go/bin:$PATH"

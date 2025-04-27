@@ -26,6 +26,8 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
 
 	export HOMEBREW_CASK_OPTS="--no-quarantine"
 
+	export HOMEBREW_NO_INSTALL_FROM_API=1
+
 	ulimit -S -n 8192
 
 	export SSH_AUTH_SOCK="$HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh"
@@ -44,19 +46,10 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
 
 	export CHROME_EXECUTABLE="/opt/homebrew/bin/chromium"
 
-	source "$(brew --prefix)/share/google-cloud-sdk/path.bash.inc"
-	source "$(brew --prefix)/share/google-cloud-sdk/completion.bash.inc"
-
 	export PROXYCHAINS_CONF_FILE="$HOME/.config/proxychains/proxychains.conf"
 
-	export PATH="$(brew --prefix llvm@16)/bin:$PATH"
+	export PATH="$(brew --prefix llvm@18)/bin:$PATH"
 	export PATH="$HOME/.linkerd2/bin:$PATH"
-
-	export PATH="$(brew --prefix)/anaconda3/bin:$PATH"
-
-	if [ -f "/opt/homebrew/anaconda3/etc/profile.d/conda.sh" ]; then
-		. "/opt/homebrew/anaconda3/etc/profile.d/conda.sh"
-	fi
 
 	source ~/.orbstack/shell/init.bash 2>/dev/null || :
 
